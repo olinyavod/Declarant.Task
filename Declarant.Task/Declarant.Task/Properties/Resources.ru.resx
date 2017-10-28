@@ -117,104 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clear.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Details" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Details.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblLoading" xml:space="preserve">
-    <value>Loading...</value>
-  </data>
-  <data name="msgDeleteEventItem" xml:space="preserve">
-    <value>Delete event item: {0}?</value>
-  </data>
-  <data name="ttlEventItems" xml:space="preserve">
-    <value>Events</value>
-  </data>
-  <data name="ValidationErrorIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ValidationErrorIcon.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="validDescriptionName" xml:space="preserve">
-    <value>Maximum legth description is {0} chars</value>
-  </data>
-  <data name="validEndTimeAfterStartTime" xml:space="preserve">
-    <value>The end time should be after the start date</value>
-  </data>
-  <data name="validMinStartTime" xml:space="preserve">
-    <value>Min time {0: dd/MM/yy HH:mm}</value>
-  </data>
-  <data name="validNameIsRequred" xml:space="preserve">
-    <value>Name is requred</value>
-  </data>
-  <data name="validNameMaxLen" xml:space="preserve">
-    <value>Maximum length name is {0} chars</value>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <data name="cdmDelete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Удалить</value>
   </data>
   <data name="clnDescription" xml:space="preserve">
-    <value>Description</value>
+    <value>Описание</value>
   </data>
   <data name="clnEndTime" xml:space="preserve">
-    <value>End time</value>
+    <value>Время окончания</value>
   </data>
   <data name="clnName" xml:space="preserve">
-    <value>Name</value>
+    <value>Название</value>
   </data>
   <data name="clnStartTime" xml:space="preserve">
-    <value>Start time</value>
+    <value>Время начала</value>
   </data>
   <data name="cmdAdd" xml:space="preserve">
-    <value>Add</value>
+    <value>Добавить...</value>
   </data>
   <data name="cmdEdit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Изменить</value>
   </data>
   <data name="cmdRefresh" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
-  <data name="grbEdit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="mnuExit" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Refresh.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Обновить</value>
   </data>
   <data name="cmdSave" xml:space="preserve">
-    <value>Save</value>
+    <value>Сохранить</value>
+  </data>
+  <data name="grbEdit" xml:space="preserve">
+    <value>Редактирование</value>
+  </data>
+  <data name="lblLoading" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="mnuExit" xml:space="preserve">
+    <value>Выход</value>
   </data>
   <data name="msgClosingChangesEditor" xml:space="preserve">
-    <value>Save changes?</value>
+    <value>Сохранить изминения?</value>
+  </data>
+  <data name="msgDeleteEventItem" xml:space="preserve">
+    <value>Удалить событие: {0}?</value>
   </data>
   <data name="ttlEditEvent" xml:space="preserve">
-    <value>Edit event - {0}</value>
+    <value>Ищменить событие - {0}</value>
+  </data>
+  <data name="ttlEventItems" xml:space="preserve">
+    <value>События</value>
   </data>
   <data name="tttAddNewEvent" xml:space="preserve">
-    <value>Add event</value>
+    <value>Добавить событие</value>
+  </data>
+  <data name="validDescriptionName" xml:space="preserve">
+    <value>Максимальная длина описания {0} символов</value>
+  </data>
+  <data name="validEndTimeAfterStartTime" xml:space="preserve">
+    <value>Дата окончания должна быть позже даты начала</value>
+  </data>
+  <data name="validMinStartTime" xml:space="preserve">
+    <value>Минимальное время начала {0: dd/MM/yy HH:mm}</value>
+  </data>
+  <data name="validNameIsRequred" xml:space="preserve">
+    <value>Название обязательно для заполнения</value>
+  </data>
+  <data name="validNameMaxLen" xml:space="preserve">
+    <value>Максимальная длина названия {0} символов</value>
   </data>
 </root>

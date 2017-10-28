@@ -1,12 +1,152 @@
-﻿<Window x:Class="Declarant.Task.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Declarant.Task"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
-</Window>
+﻿<RibbonWindow x:Class="Declarant.Task.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:local="clr-namespace:Declarant.Task"
+              xmlns:viewModels="clr-namespace:Declarant.Task.ViewModels"
+              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+              xmlns:behaviors="clr-namespace:EasyProg.WPF.MVVM.Behaviors;assembly=EasyProg.WPF.MVVM"
+              xmlns:props="clr-namespace:Declarant.Task.Properties"
+              xmlns:extensions="clr-namespace:EasyProg.WPF.MVVM.Extensions;assembly=EasyProg.WPF.MVVM"
+              xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+              mc:Ignorable="d"
+              d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+              Title="{Binding DisplayTitle}" 
+              DataContext="{dxmvvm:ViewModelSource viewModels:MainViewModel}"
+              Height="350" 
+              Width="525">
+  <RibbonWindow.Resources>
+    <ContextMenu x:Key="MainMenu">
+      <MenuItem Icon="{extensions:BytesSvgImage {x:Static props:Resources.Details}}"
+                Header="{x:Static props:Resources.cmdEdit}"
+                InputGestureText="Enter"
+                FontWeight="Bold"
+                Command="{Binding DetailsCommand}"/>
+      <Separator/>
+      <MenuItem Icon="{extensions:BytesSvgImage {x:Static props:Resources.Delete}}"
+                Header="{x:Static props:Resources.cdmDelete}"
+                InputGestureText="Del"
+                Command="{Binding DeleteCommand}"/>
+      <MenuItem Icon="{extensions:BytesSvgImage {x:Static props:Resources.Add}}"
+                Header="{x:Static props:Resources.cmdAdd}"
+                InputGestureText="Ins"
+                Command="{Binding AddCommand}"/>
+      <Separator/>
+      <MenuItem Icon="{extensions:BytesSvgImage {x:Static props:Resources.Refresh}}"
+                Header="{x:Static props:Resources.cmdRefresh}"
+                InputGestureText="F5"
+                Command="{Binding RefreshCommand}"/>
+    </ContextMenu>
+  </RibbonWindow.Resources>
+  <RibbonWindow.InputBindings>
+    <KeyBinding Command="{Binding AddCommand}"
+                Key="F1"/>
+    <KeyBinding Command="{Binding RefreshCommand}"
+                Key="F5"/>
+  </RibbonWindow.InputBindings>
+  <dxmvvm:Interaction.Behaviors>
+    <behaviors:CurrentWindowServiceEx IconBytes="{x:Static props:Resources.Details}"/>
+    <dxmvvm:MessageBoxService/>
+    <dxmvvm:DXSplashScreenService SplashScreenStartupLocation="CenterOwner"
+                                  OwnerSearchMode="OwnerOnly"
+                                  ShowSplashScreenOnLoading="True"
+                                  ViewTemplate="{StaticResource WaitTemplate}"/>
+    <behaviors:SaveStateWindowBehavior SettingsKey="PatientCrudListWindowKey"
+                                       DefaultWindowStartupLocation="CenterScreen"
+                                       DefaultWindowState="Normal"
+                                       DefaultSize="500, 400"/>
+    <dxmvvm:EventToCommand Command="{Binding OnLoadedCommand}"/>
+    <behaviors:WindowServiceEx WindowShowMode="Dialog" 
+                               WindowStartupLocation="CenterOwner"/>
+  </dxmvvm:Interaction.Behaviors>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Ribbon>
+      <Ribbon.ApplicationMenu>
+       <RibbonApplicationMenu>
+         <RibbonApplicationMenu.FooterPaneContent>
+           <RibbonButton Label="{x:Static props:Resources.mnuExit}"
+                         SmallImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Exit}}"
+                         Command="{Binding ExitCommand}">
+           </RibbonButton>
+        </RibbonApplicationMenu.FooterPaneContent>
+       </RibbonApplicationMenu>
+      </Ribbon.ApplicationMenu>
+      <RibbonTab Header="{x:Static props:Resources.ttlEventItems}">
+        <RibbonGroup Header="{x:Static props:Resources.grbEdit}">
+          <RibbonButton SmallImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Add}}"
+                        LargeImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Add}}"
+                        Label="{x:Static props:Resources.cmdAdd}"
+                        Command="{Binding AddCommand}"/>
+          <RibbonButton SmallImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Delete}}"
+                        LargeImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Delete}}"
+                        Label="{x:Static props:Resources.cdmDelete}"
+                        Command="{Binding DeleteCommand}"/>
+          <RibbonButton SmallImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Details}}"
+                        LargeImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Details}}"
+                        Label="{x:Static props:Resources.cmdEdit}"
+                        Command="{Binding DetailsCommand}"/>
+          <RibbonButton SmallImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Refresh}}"
+                        LargeImageSource="{extensions:BytesSvgImage {x:Static props:Resources.Refresh}}"
+                        Label="{x:Static props:Resources.cmdRefresh}"
+                        Command="{Binding RefreshCommand}"/>
+        </RibbonGroup>
+
+      </RibbonTab>
+    </Ribbon>
+    <DataGrid Grid.Row="1"
+              ContextMenu="{StaticResource MainMenu}"
+              LoadingRow="DataGrid_OnLoadingRow"
+              ItemsSource="{Binding ItemsSource}"
+              SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+      <DataGrid.ItemContainerStyle>
+        <Style TargetType="{x:Type DataGridRow}">
+          <Setter Property="dxmvvm:Interaction.BehaviorsTemplate">
+            <Setter.Value>
+              <DataTemplate>
+                <ItemsControl>
+                  <dxmvvm:EventToCommand EventName="MouseDoubleClick"
+                                         Command="{Binding DetailsCommand}"/>
+                </ItemsControl>
+              </DataTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </DataGrid.ItemContainerStyle>
+      <DataGrid.InputBindings>
+        <KeyBinding Command="{Binding DetailsCommand}"
+                    Key="Enter"/>
+        <KeyBinding Command="{Binding DeleteCommand}"
+                    Key="Delete"/>
+      </DataGrid.InputBindings>
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="{x:Static props:Resources.clnName}"
+                            Width="*"
+                            Binding="{Binding Name}"/>
+        <DataGridTextColumn Header="{x:Static props:Resources.clnStartTime}"
+                            Width="*">
+          <DataGridTextColumn.Binding>
+            <Binding Path="StartTime"
+                     StringFormat="dd/MM/yy HH:mm"
+                     ConverterCulture="{x:Static globalization:CultureInfo.CurrentUICulture}"/>
+          </DataGridTextColumn.Binding>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="{x:Static props:Resources.clnEndTime}"
+                            Width="*">
+          <DataGridTextColumn.Binding>
+            <Binding Path="EndTime"
+                     StringFormat="dd/MM/yy HH:mm"
+                     ConverterCulture="{x:Static globalization:CultureInfo.CurrentUICulture}"/>
+          </DataGridTextColumn.Binding>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="{x:Static props:Resources.clnDescription}"
+                            Width="*"
+                            Binding="{Binding Description}"/>
+      </DataGrid.Columns>
+    </DataGrid>
+  </Grid>
+</RibbonWindow>

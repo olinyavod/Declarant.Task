@@ -27,7 +27,7 @@ namespace Declarant.Task
 				.IsUnicode();
 
 		    modelBuilder.Entity<EventItem>()
-			    .Property(m => m.Desciption)
+			    .Property(m => m.Description)
 			    .HasMaxLength(1024)
 			    .IsVariableLength()
 			    .IsUnicode();

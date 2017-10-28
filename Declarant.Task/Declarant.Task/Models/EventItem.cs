@@ -6,7 +6,7 @@ namespace Declarant.Task.Models
     {
 	    public string Name { get; set; }
 
-	    public string Desciption { get; set; }
+	    public string Description { get; set; }
 
 	    public DateTime StartTime { get; set; }
 

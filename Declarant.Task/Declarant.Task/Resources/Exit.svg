@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="210mm" height="210mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 210 210"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#50854B}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_749544016">
+   <rect class="fil0" width="50" height="210" rx="10" ry="10"/>
+   <rect class="fil0" transform="matrix(1.57574E-014 -0.780894 0.805225 2.79904E-014 4.37921E-005 50)" width="64" height="199" rx="10" ry="10"/>
+   <rect class="fil0" transform="matrix(1.57574E-014 -0.780894 0.805225 2.79904E-014 -5.37679E-006 210)" width="64" height="199" rx="10" ry="10"/>
+   <rect class="fil0" transform="matrix(1.18181E-014 -0.780894 0.603919 2.79904E-014 90 130)" width="64" height="199" rx="10" ry="10"/>
+  </g>
+ </g>
+</svg>
