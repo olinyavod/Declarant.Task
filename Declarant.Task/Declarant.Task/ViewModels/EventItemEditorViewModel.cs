@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Declarant.Task.Models;
 using Declarant.Task.Properties;
+using Declarant.Task.Providers;
+using EasyProg.WPF.MVVM.Services;
 using EasyProg.WPF.MVVM.ViewModels;
 
 namespace Declarant.Task.ViewModels
@@ -51,6 +54,22 @@ namespace Declarant.Task.ViewModels
 			SaveTitle = IsNew ? Resources.cmdAdd : Resources.cmdSave;
 		}
 
+		protected override async Task<bool> SaveChangesAsync()
+		{
+			var r = await base.SaveChangesAsync();
+			if (r)
+			{
+				this.Resolve<IShedulerProvider>().SetEvent(Model);
+			}
+			return r;
+		}
 
+		protected override async System.Threading.Tasks.Task OnLoaded()
+		{
+			await base.OnLoaded();
+			if (IsNew)
+				StartTime = DateTime.Now;
+
+		}
 	}
 }

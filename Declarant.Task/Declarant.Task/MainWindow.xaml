@@ -48,6 +48,7 @@
   <dxmvvm:Interaction.Behaviors>
     <behaviors:CurrentWindowServiceEx IconBytes="{x:Static props:Resources.Details}"/>
     <dxmvvm:MessageBoxService/>
+    <dxmvvm:DispatcherService/>
     <dxmvvm:DXSplashScreenService SplashScreenStartupLocation="CenterOwner"
                                   OwnerSearchMode="OwnerOnly"
                                   ShowSplashScreenOnLoading="True"

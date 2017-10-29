@@ -2,6 +2,7 @@
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using Declarant.Task.IoCModules;
+using Declarant.Task.Providers;
 using DevExpress.Mvvm.UI;
 using EasyProg.WPF.MVVM.Services;
 
@@ -34,7 +35,7 @@ namespace Declarant.Task
 			_container = builder.Build();
 
 			CommonServiceLocator.ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(_container));
-			
+			_container.Resolve<IShedulerProvider>().Start();
 		}
 	}
 

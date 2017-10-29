@@ -3,6 +3,7 @@ using Autofac;
 using AutoMapper;
 using Declarant.Task.Managers;
 using Declarant.Task.Models;
+using Declarant.Task.Providers;
 using Declarant.Task.Validators;
 using DevExpress.Mvvm;
 using EasyProg.BusinessLogic.Interfaces;
@@ -47,6 +48,10 @@ namespace Declarant.Task.IoCModules
 				.SingleInstance();
 
 			builder.Register(c => c.Resolve<MapperConfiguration>().CreateMapper());
+
+			builder.RegisterType<ShedulerProvider>()
+				.As<IShedulerProvider>()
+				.SingleInstance();
 
 		}
 	}
